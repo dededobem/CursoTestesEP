@@ -5,7 +5,7 @@ using Xunit;
 
 namespace Demo.Tests
 {
-    public class StringsToolsTests
+    public class AssertStringsTests
     {
         [Fact]
         public void StringsTools_UnirNomes_RetornarNomeCompleto()
@@ -69,7 +69,20 @@ namespace Demo.Tests
             var nomeCompleto = unirStr.Unir("André", "Dantas");
 
             //Assert
-            Assert.StartsWith("And", nomeCompleto);
+            Assert.EndsWith("tas", nomeCompleto);
+        }
+
+        [Fact]
+        public void StringsTools_UnirNomes_ValidarExpressaoRegular()
+        {
+            //Arrange
+            var unirStr = new StringsTools();
+
+            //Act
+            var nomeCompleto = unirStr.Unir("André", "Dantas");
+
+            //Assert
+            Assert.Matches("[A-Z]{1}[a-z]+", nomeCompleto);
         }
     }
 }
