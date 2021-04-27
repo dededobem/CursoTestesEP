@@ -3,21 +3,18 @@ using Moq;
 using Moq.AutoMock;
 using Recursos.Clientes;
 using Recursos.Tests._4_DadosHumanos;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using Xunit;
 
 namespace Recursos.Tests._6_AutoMock
 {
     [Collection(nameof(ClienteBogusCollection))]
-    public class ClienteServiceAutoMockerTests
+    public class ClienteServiceFluentAssertionsTests
     {
         private readonly ClienteTestsBogusFixture _clienteTestsBogusFixture;
 
-        public ClienteServiceAutoMockerTests(ClienteTestsBogusFixture clienteTestsBogusFixture)
+        public ClienteServiceFluentAssertionsTests(ClienteTestsBogusFixture clienteTestsBogusFixture)
         {
             _clienteTestsBogusFixture = clienteTestsBogusFixture;
         }

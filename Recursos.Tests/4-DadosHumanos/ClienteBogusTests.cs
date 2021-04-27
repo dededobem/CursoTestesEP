@@ -1,14 +1,13 @@
-﻿using Recursos.Tests._2_Fixtures;
-using Xunit;
+﻿using Xunit;
 
 namespace Recursos.Tests._4_DadosHumanos
 {
     [Collection(nameof(ClienteBogusCollection))]
-    public class ClienteBogusTests
+    public class ClienteFluentAssertionsTests
     {
         private readonly ClienteTestsBogusFixture _clienteTestsFixture;
 
-        public ClienteBogusTests(ClienteTestsBogusFixture clienteTestsFixture)
+        public ClienteFluentAssertionsTests(ClienteTestsBogusFixture clienteTestsFixture)
         {
             _clienteTestsFixture = clienteTestsFixture;
         }

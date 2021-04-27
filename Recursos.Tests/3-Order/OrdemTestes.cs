@@ -13,7 +13,7 @@ namespace Recursos.Tests._3_Order
         public static bool Teste3Chamado;
         public static bool Teste4Chamado;
 
-        [Fact(DisplayName = "Teste 04"), TestPriority(3)]
+        [Fact(DisplayName = "Teste 04", Skip = "Rever teste de ordenação"), TestPriority(3)]
         [Trait("Categoria", "Ordenação Testes")]
         public void Teste04()
         {
@@ -25,7 +25,7 @@ namespace Recursos.Tests._3_Order
 
         }
 
-        [Fact(DisplayName = "Teste 01"), TestPriority(2)]
+        [Fact(DisplayName = "Teste 01", Skip = "Rever teste de ordenação"), TestPriority(2)]
         [Trait("Categoria", "Ordenação Testes")]
         public void Teste01()
         {
@@ -37,7 +37,7 @@ namespace Recursos.Tests._3_Order
 
         }
 
-        [Fact(DisplayName = "Teste 03"), TestPriority(1)]
+        [Fact(DisplayName = "Teste 03", Skip = "Rever teste de ordenação"), TestPriority(1)]
         [Trait("Categoria", "Ordenação Testes")]
         public void Teste03()
         {
@@ -49,7 +49,7 @@ namespace Recursos.Tests._3_Order
 
         }
 
-        [Fact(DisplayName = "Teste 02"), TestPriority(4)]
+        [Fact(DisplayName = "Teste 02", Skip = "Rever teste de ordenação"), TestPriority(4)]
         [Trait("Categoria", "Ordenação Testes")]
         public void Teste02()
         {
