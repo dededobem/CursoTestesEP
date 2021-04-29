@@ -1,8 +1,5 @@
 ﻿using FluentAssertions;
 using Recursos.Core;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace Recursos.Tests._9_CodeCoverage

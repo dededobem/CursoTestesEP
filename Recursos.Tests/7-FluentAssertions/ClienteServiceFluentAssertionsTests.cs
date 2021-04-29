@@ -4,7 +4,6 @@ using MediatR;
 using Moq;
 using Recursos.Clientes;
 using Recursos.Tests._6_AutoMock;
-using System.Linq;
 using System.Threading;
 using Xunit;
 
