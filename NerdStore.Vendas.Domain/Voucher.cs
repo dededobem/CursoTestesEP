@@ -88,10 +88,4 @@ namespace NerdStore.Vendas.Domain
         protected static bool DataVencimentoSuperiorAtual(DateTime dataValidade) => 
             dataValidade >= DateTime.Now;
     }
-
-    public enum TipoDescontoVoucher
-    {
-        Porcentagem = 0,
-        Valor = 1
-    }
 }

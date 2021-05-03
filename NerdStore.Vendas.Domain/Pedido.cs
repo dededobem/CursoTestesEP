@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace NerdStore.Vendas.Domain
 {
-    public class Pedido
+    public class Pedido : Entity, IAggregateRoot
     {
         public static int MAX_UNIDADES_ITEM => 15;
         public static int MIN_UNIDADES_ITEM => 1;
@@ -85,6 +85,7 @@ namespace NerdStore.Vendas.Domain
         private void CalcularValorPedido()
         {
             ValorTotal = PedidoItems.Sum(i => i.CalcularValor());
+            CalcularValorTotalDesconto();
         }
 
         public void TornarPedidoRascunho()
@@ -110,12 +111,14 @@ namespace NerdStore.Vendas.Domain
             if (!VoucherUtilizado) return;
 
             decimal desconto = 0;
+            var valor = ValorTotal;
 
             if(Voucher.TipoDescontoVoucher == TipoDescontoVoucher.Valor)
             {
                 if (Voucher.ValorDesconto.HasValue)
                 {
                     desconto = Voucher.ValorDesconto.Value;
+                    valor -= desconto;
                 }
             }
             else
@@ -123,14 +126,14 @@ namespace NerdStore.Vendas.Domain
                 if (Voucher.PercentualDesconto.HasValue)
                 {
                     desconto = ValorTotal * (Voucher.PercentualDesconto.Value / 100);
+                    valor -= desconto;
                 }
             }
 
-            ValorTotal -= desconto;
+            ValorTotal = valor < 0 ? 0 : valor;
             Desconto = desconto;
         }
         
-
         public static class PedidoFactory
         {
             public static Pedido NovoPedidoRascunho(Guid clienteId)
@@ -145,14 +148,4 @@ namespace NerdStore.Vendas.Domain
         }
 
     }
-
-    public enum PedidoStatus
-    {
-        Rascunho = 0,
-        Iniciado = 1,
-        Pago = 2,
-        Entregue = 3,
-        Cancelado = 6
-    }
-
 }
